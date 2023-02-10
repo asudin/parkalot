@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4907987003116435242}
   - component: {fileID: 8337138974815565967}
   - component: {fileID: 6077467991897984069}
-  - component: {fileID: 4013597913142212222}
   m_Layer: 0
   m_Name: CoconutTree_3
   m_TagString: Untagged
@@ -84,17 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4013597913142212222
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5717175142783479184}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -76790215008690489, guid: 9e8ff606ec32a6c4bb53b3be8b8e34c0, type: 3}

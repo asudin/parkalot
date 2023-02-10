@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 751169143402935961}
   - component: {fileID: 4450519390903548220}
   - component: {fileID: 1884647075042020854}
-  - component: {fileID: 7989399450104200152}
   m_Layer: 0
   m_Name: PineTree_2
   m_TagString: Untagged
@@ -84,16 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7989399450104200152
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83141735264578595}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 3.8434224, z: 1}
-  m_Center: {x: -0.000000029802322, y: 1.9274418, z: 0.030153692}
