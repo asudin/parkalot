@@ -73,11 +73,11 @@ public class CarMover : MonoBehaviour
         float distanceFromStart = _pathCreator.path.GetClosestDistanceAlongPath(closestPoint);
         _distanceTraveled = distanceFromStart;
 
-        while (transform.position != closestPoint)
-        {
-            RotateCar(closestPoint, distanceFromStart);
-            yield return null;
-        }
+        //while (transform.position != closestPoint)
+        //{
+        //    RotateCar(closestPoint, distanceFromStart);
+        //    yield return null;
+        //}
 
         while (_distanceTraveled < _pathCreator.path.length)
         {

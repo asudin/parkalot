@@ -8532,18 +8532,15 @@ MonoBehaviour:
       - {x: 9.229773, y: 0, z: -24.272919}
       - {x: 8.904044, y: 0, z: -24.274504}
       - {x: 8.669341, y: 0, z: -24.275646}
-      - {x: 8.483636, y: 0, z: -24.276361}
-      - {x: 8.19282, y: 0, z: -24.277338}
-      - {x: 7.7173305, y: 0, z: -24.278934}
-      - {x: 7.4269114, y: 0, z: -24.279892}
-      - {x: 7.0299625, y: 0, z: -24.280828}
-      - {x: 6.6939626, y: 0, z: -24.281622}
-      - {x: 6.3668265, y: 0, z: -24.28218}
-      - {x: 6.0456586, y: 0, z: -24.282494}
-      - {x: 5.6823564, y: 0, z: -24.282848}
-      - {x: 5.2956243, y: 0, z: -24.282831}
-      - {x: 4.932217, y: 0, z: -24.282482}
-      - {x: 4.612016, y: 0, z: -24.282175}
+      - {x: 8.30607, y: -0.000011444089, z: -24.280966}
+      - {x: 8.015254, y: -0.000011444089, z: -24.281942}
+      - {x: 7.539765, y: -0.000011444089, z: -24.283539}
+      - {x: 7.193747, y: -0.0062293992, z: -24.295177}
+      - {x: 6.796798, y: -0.0062293992, z: -24.296114}
+      - {x: 6.4607983, y: -0.0062293992, z: -24.296907}
+      - {x: 5.495822, y: 0.012418744, z: -24.259207}
+      - {x: 5.132415, y: 0.012418744, z: -24.258858}
+      - {x: 4.812214, y: 0.012418744, z: -24.25855}
       - {x: 4.2785892, y: 0, z: -24.28154}
       - {x: 3.9511561, y: 0, z: -24.280632}
       - {x: 3.7570386, y: 0, z: -24.280094}
@@ -8728,10 +8725,9 @@ MonoBehaviour:
       - 0
       - 0
       - 0
-      - 0
       globalNormalsAngle: 275
       flipNormals: 1
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 0
@@ -8739,12 +8735,12 @@ MonoBehaviour:
     showPerSegmentBounds: 0
     displayAnchorPoints: 1
     displayControlPoints: 1
-    bezierHandleScale: 1
+    bezierHandleScale: 0.2
     globalDisplaySettingsFoldout: 0
     keepConstantHandleSize: 1
     showNormalsInVertexMode: 0
     showBezierPathInVertexMode: 0
-    showDisplayOptions: 0
+    showDisplayOptions: 1
     showPathOptions: 1
     showVertexPathDisplayOptions: 0
     showVertexPathOptions: 1
@@ -10873,15 +10869,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962604723004163529, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
       propertyPath: m_Size.x
-      value: 0.3129778
+      value: 0.48661932
       objectReference: {fileID: 0}
     - target: {fileID: 3962604723004163529, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
       propertyPath: m_Size.z
-      value: 1.0062371
+      value: 1.1716003
       objectReference: {fileID: 0}
     - target: {fileID: 3962604723004163529, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
       propertyPath: m_Center.x
-      value: -0.024448555
+      value: -0.002486547
       objectReference: {fileID: 0}
     - target: {fileID: 3962604723004163529, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
       propertyPath: m_Center.y
@@ -10889,7 +10885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962604723004163529, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
       propertyPath: m_Center.z
-      value: -0.023730477
+      value: -0.106411934
       objectReference: {fileID: 0}
     - target: {fileID: 4181612236211765426, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
       propertyPath: m_RootOrder
