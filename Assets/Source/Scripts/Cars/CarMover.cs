@@ -15,7 +15,7 @@ public class CarMover : MonoBehaviour
     private Vector3 _endPosition;
     private Vector3 _direction;
     private float _speed = 20;
-    private float _pathSpeed = 2;
+    private float _pathSpeed = 5;
     private float _distanceTraveled;
 
     private void Start()
@@ -28,7 +28,7 @@ public class CarMover : MonoBehaviour
         if (_isMoving)
         {
             _rigidbody.MovePosition(transform.position + _direction * _speed * Time.fixedDeltaTime);
-        }
+        }        
     }
 
     private void OnMouseDown()
@@ -61,6 +61,8 @@ public class CarMover : MonoBehaviour
         if (other.gameObject.TryGetComponent(out NavMeshPathTrigger pathTrigger))
         {
             _isMoving = false;
+            _hasEnteredTrigger = true;
+            _rigidbody.isKinematic = true;
             StartCoroutine(MoveOnPath());
         }
     }
@@ -69,27 +71,33 @@ public class CarMover : MonoBehaviour
     {
         Vector3 closestPoint = _pathCreator.path.GetClosestPointOnPath(transform.position);
         float distanceFromStart = _pathCreator.path.GetClosestDistanceAlongPath(closestPoint);
+        _distanceTraveled = distanceFromStart;
 
-        while (Vector3.Distance(transform.position, closestPoint) > 0.1f)
+        while (transform.position != closestPoint)
         {
-            transform.position = Vector3.MoveTowards(transform.position, closestPoint, _speed * Time.deltaTime);
-            transform.rotation = Quaternion.LookRotation(_pathCreator.path.GetDirectionAtDistance(distanceFromStart));
-
-            closestPoint = _pathCreator.path.GetClosestPointOnPath(transform.position);
-            distanceFromStart = _pathCreator.path.GetClosestDistanceAlongPath(closestPoint);
+            RotateCar(closestPoint, distanceFromStart);
             yield return null;
         }
-
-        _distanceTraveled = distanceFromStart;
-        _hasEnteredTrigger = true;
-        _rigidbody.isKinematic = true;
 
         while (_distanceTraveled < _pathCreator.path.length)
         {
-            _distanceTraveled += _pathSpeed * Time.deltaTime;
-            transform.position = _pathCreator.path.GetPointAtDistance(_distanceTraveled, _pathEnd);
-            transform.rotation = _pathCreator.path.GetRotationAtDistance(_distanceTraveled, _pathEnd);
+            MoveCar();
             yield return null;
         }
+    }
+
+    private void RotateCar(Vector3 closestPoint, float distanceFromStart)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, closestPoint, _pathSpeed * Time.deltaTime);
+
+        Quaternion targetRotation = Quaternion.LookRotation(_pathCreator.path.GetDirectionAtDistance(distanceFromStart));
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _pathSpeed * Time.deltaTime);
+    }
+
+    private void MoveCar()
+    {
+        transform.position = _pathCreator.path.GetPointAtDistance(_distanceTraveled, _pathEnd);
+        transform.rotation = _pathCreator.path.GetRotationAtDistance(_distanceTraveled, _pathEnd);
+        _distanceTraveled += _pathSpeed * Time.deltaTime;
     }
 }
