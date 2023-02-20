@@ -11,14 +11,12 @@ GameObject:
   - component: {fileID: 75984359908336156}
   - component: {fileID: 3936753873042894265}
   - component: {fileID: 1244928103982930291}
-  - component: {fileID: 1193903274}
-  - component: {fileID: 1193903272}
   m_Layer: 0
   m_Name: Road_Zebravorss
   m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 3
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &75984359908336156
 Transform:
@@ -85,28 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1193903274
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740318719466682534}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7.985446, y: 0.14615, z: 7.985446}
-  m_Center: {x: 0.00000011920929, y: 0.06441949, z: 0.00000011920929}
---- !u!114 &1193903272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740318719466682534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cda28a9403883f4cbebf17433ef76f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

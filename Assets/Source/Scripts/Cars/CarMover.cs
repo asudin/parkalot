@@ -1,16 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class CarMover : MonoBehaviour
 {
     [SerializeField] private Transform _targetPosition;
+    [SerializeField] private Transform _endTrigger;
+
     private NavMeshAgent _navmeshagent;
     private Rigidbody _rigidbody;
+    private bool _hasEnteredTrigger = false;
+    private bool _isMoving = false;
     private Vector3 _startPosition;
     private Vector3 _endPosition;
     private Vector3 _direction;
-    private bool _isMoving = false;
-    private bool _hasEnteredTrigger = false;
     private float _speed = 20;
 
     private void Start()
@@ -22,22 +25,21 @@ public class CarMover : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_hasEnteredTrigger)
+        {
+            _navmeshagent.updatePosition = true;
+            _navmeshagent.SetDestination(_targetPosition.position);
+        }
+
         if (_isMoving)
         {
             _rigidbody.MovePosition(transform.position + _direction * _speed * Time.fixedDeltaTime);
-        }
-        
-        if (_hasEnteredTrigger)
-        {
-            _navmeshagent.enabled = true;
-            _navmeshagent.updatePosition = true;
-            _navmeshagent.destination = _targetPosition.position;
         }
     }
 
     private void OnMouseDown()
     {
-        if (!_isMoving)
+        if (!_hasEnteredTrigger)
         {
             _startPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
         }
@@ -55,9 +57,18 @@ public class CarMover : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Road road))
+        if (other.transform == _endTrigger)
+        {
+            _hasEnteredTrigger = false;
+            _rigidbody.isKinematic = false;
+            _navmeshagent.enabled = false;
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.TryGetComponent(out NavMeshPathTrigger trigger))
         {
             _hasEnteredTrigger = true;
+            _rigidbody.isKinematic = true;
+            _navmeshagent.enabled = true;
         }
     }
 }
