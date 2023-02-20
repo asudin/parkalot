@@ -1,12 +1,13 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using PathCreation;
+using System.Collections;
 
 public class CarMover : MonoBehaviour
 {
     [SerializeField] private Transform _targetPosition;
+    [SerializeField] private PathCreator _pathCreator;
+    [SerializeField] private EndOfPathInstruction _pathEnd;
 
-    private NavMeshAgent _navmeshagent;
     private Rigidbody _rigidbody;
     private bool _hasEnteredTrigger = false;
     private bool _isMoving = false;
@@ -14,23 +15,16 @@ public class CarMover : MonoBehaviour
     private Vector3 _endPosition;
     private Vector3 _direction;
     private float _speed = 20;
+    private float _pathSpeed = 2;
+    private float _distanceTraveled;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _navmeshagent = GetComponent<NavMeshAgent>();
-        _navmeshagent.updatePosition = false;
-        _navmeshagent.autoTraverseOffMeshLink = true;
     }
 
     private void FixedUpdate()
     {
-        if (_hasEnteredTrigger)
-        {
-            _navmeshagent.SetDestination(_targetPosition.position);
-            _navmeshagent.updatePosition = true;
-        }
-
         if (_isMoving)
         {
             _rigidbody.MovePosition(transform.position + _direction * _speed * Time.fixedDeltaTime);
@@ -61,14 +55,41 @@ public class CarMover : MonoBehaviour
         {
             _hasEnteredTrigger = false;
             _rigidbody.isKinematic = false;
-            _navmeshagent.enabled = false;
             Destroy(gameObject);
         }
-        else if (other.gameObject.TryGetComponent(out NavMeshPathTrigger pathTrigger))
+        
+        if (other.gameObject.TryGetComponent(out NavMeshPathTrigger pathTrigger))
         {
-            _hasEnteredTrigger = true;
-            _rigidbody.isKinematic = true;
-            _navmeshagent.enabled = true;
+            _isMoving = false;
+            StartCoroutine(MoveOnPath());
+        }
+    }
+
+    private IEnumerator MoveOnPath()
+    {
+        Vector3 closestPoint = _pathCreator.path.GetClosestPointOnPath(transform.position);
+        float distanceFromStart = _pathCreator.path.GetClosestDistanceAlongPath(closestPoint);
+
+        while (Vector3.Distance(transform.position, closestPoint) > 0.1f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, closestPoint, _speed * Time.deltaTime);
+            transform.rotation = Quaternion.LookRotation(_pathCreator.path.GetDirectionAtDistance(distanceFromStart));
+
+            closestPoint = _pathCreator.path.GetClosestPointOnPath(transform.position);
+            distanceFromStart = _pathCreator.path.GetClosestDistanceAlongPath(closestPoint);
+            yield return null;
+        }
+
+        _distanceTraveled = distanceFromStart;
+        _hasEnteredTrigger = true;
+        _rigidbody.isKinematic = true;
+
+        while (_distanceTraveled < _pathCreator.path.length)
+        {
+            _distanceTraveled += _pathSpeed * Time.deltaTime;
+            transform.position = _pathCreator.path.GetPointAtDistance(_distanceTraveled, _pathEnd);
+            transform.rotation = _pathCreator.path.GetRotationAtDistance(_distanceTraveled, _pathEnd);
+            yield return null;
         }
     }
 }
