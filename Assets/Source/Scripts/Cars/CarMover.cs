@@ -5,7 +5,6 @@ using UnityEngine.AI;
 public class CarMover : MonoBehaviour
 {
     [SerializeField] private Transform _targetPosition;
-    [SerializeField] private Transform _endTrigger;
 
     private NavMeshAgent _navmeshagent;
     private Rigidbody _rigidbody;
@@ -21,14 +20,15 @@ public class CarMover : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _navmeshagent = GetComponent<NavMeshAgent>();
         _navmeshagent.updatePosition = false;
+        _navmeshagent.autoTraverseOffMeshLink = true;
     }
 
     private void FixedUpdate()
     {
         if (_hasEnteredTrigger)
         {
-            _navmeshagent.updatePosition = true;
             _navmeshagent.SetDestination(_targetPosition.position);
+            _navmeshagent.updatePosition = true;
         }
 
         if (_isMoving)
@@ -57,14 +57,14 @@ public class CarMover : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform == _endTrigger)
+        if (other.gameObject.TryGetComponent(out WinningZoneTrigger winzoneTrigger))
         {
             _hasEnteredTrigger = false;
             _rigidbody.isKinematic = false;
             _navmeshagent.enabled = false;
             Destroy(gameObject);
         }
-        else if (other.gameObject.TryGetComponent(out NavMeshPathTrigger trigger))
+        else if (other.gameObject.TryGetComponent(out NavMeshPathTrigger pathTrigger))
         {
             _hasEnteredTrigger = true;
             _rigidbody.isKinematic = true;
