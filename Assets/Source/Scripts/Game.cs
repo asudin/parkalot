@@ -30,7 +30,6 @@ public class Game : MonoBehaviour
         }
     }
 
-
     private void OnRestartGame()
     {
         _isCompleted = true;
