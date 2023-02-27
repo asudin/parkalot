@@ -63,6 +63,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1818744092032833442, guid: 419ad5e9ca3165341be025684dfc673a, type: 3}
+      propertyPath: m_Size.x
+      value: 0.48661932
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818744092032833442, guid: 419ad5e9ca3165341be025684dfc673a, type: 3}
+      propertyPath: m_Size.z
+      value: 1.1716003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818744092032833442, guid: 419ad5e9ca3165341be025684dfc673a, type: 3}
+      propertyPath: m_Center.x
+      value: -0.002486547
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818744092032833442, guid: 419ad5e9ca3165341be025684dfc673a, type: 3}
+      propertyPath: m_Center.y
+      value: 0.3625072
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818744092032833442, guid: 419ad5e9ca3165341be025684dfc673a, type: 3}
+      propertyPath: m_Center.z
+      value: -0.106411934
+      objectReference: {fileID: 0}
     - target: {fileID: 2197959603820677219, guid: 419ad5e9ca3165341be025684dfc673a, type: 3}
       propertyPath: m_Name
       value: Car_3
@@ -104,4 +124,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetPosition: {fileID: 0}
   _pathCreator: {fileID: 0}
-  _pathEnd: 1
+  _pathEnd: 2
+--- !u!114 &7395738400865909275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549894790292445704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1811bb9b620458246a49419dd5393090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5235370304314344852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549894790292445704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73c44b5413501d44b66d375c87e61ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
