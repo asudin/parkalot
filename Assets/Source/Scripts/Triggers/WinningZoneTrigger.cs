@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class WinningZoneTrigger : MonoBehaviour 
 {
-    [SerializeField] private List<Car> _collectableCars;
+    [SerializeField] private CarsContainer _container;
 
     private static int _collectedCars = 0;
 
@@ -18,7 +18,7 @@ public class WinningZoneTrigger : MonoBehaviour
         {
             _collectedCars++;
 
-            if (_collectedCars == _collectableCars.Count)
+            if (_collectedCars == _container.TotalCarsCount)
             {
                 LevelPassed?.Invoke();
             }
