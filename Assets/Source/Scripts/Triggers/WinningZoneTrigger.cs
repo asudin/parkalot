@@ -17,7 +17,7 @@ public class WinningZoneTrigger : MonoBehaviour
         {
             _collectedCars++;
 
-            if (_collectedCars == _container.TotalCarsCount)
+            if (_collectedCars == _container.Cars.Count)
             {
                 LevelPassed?.Invoke();
             }

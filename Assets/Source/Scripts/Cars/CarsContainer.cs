@@ -1,11 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CarsContainer : MonoBehaviour
 {
-    public int TotalCarsCount { get; private set;}
+    public List<Car> Cars { get; private set; }
 
     private void Awake()
     {
-        TotalCarsCount = transform.childCount;
+        Cars = new List<Car>();
+        Cars.AddRange(GetComponentsInChildren<Car>());
     }
 }

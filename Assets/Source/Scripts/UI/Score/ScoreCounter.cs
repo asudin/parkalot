@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class ScoreCounter : MonoBehaviour
 {
     [SerializeField] private TMP_Text _coinsScore;
-    [SerializeField] private List<Car> _cars;
+    [SerializeField] private CarsContainer _carsContainer;
     
     private LevelCompletedScreen _levelCompletedScreen;
     private static int _playerCoins = 0;
@@ -15,7 +14,7 @@ public class ScoreCounter : MonoBehaviour
 
     private void OnEnable()
     {
-        foreach (Car car in _cars)
+        foreach (Car car in _carsContainer.Cars)
         {
             car.CollisionHandler.Collected += ChangeCoinsNumber;
         }
@@ -23,7 +22,7 @@ public class ScoreCounter : MonoBehaviour
 
     private void OnDisable()
     {
-        foreach (Car car in _cars)
+        foreach (Car car in _carsContainer.Cars)
         {
             car.CollisionHandler.Collected -= ChangeCoinsNumber;
         }

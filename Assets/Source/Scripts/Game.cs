@@ -14,13 +14,13 @@ public class Game : MonoBehaviour
     private void OnEnable()
     {
         _winningZone.LevelPassed += OnGameOver;
-        _levelCompletedScreen.ShowCanvas += OnRestartGame;
+        //_levelCompletedScreen.ShowCanvas += OnRestartGame;
     }
 
     private void OnDisable()
     {
         _winningZone.LevelPassed -= OnGameOver;
-        _levelCompletedScreen.ShowCanvas -= OnRestartGame;
+        //_levelCompletedScreen.ShowCanvas -= OnRestartGame;
     }
     private void Update()
     {
@@ -37,10 +37,10 @@ public class Game : MonoBehaviour
 
     private void RestartGame()
     {
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        //if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //}
     }
 
     public void OnGameOver()
