@@ -12,19 +12,23 @@ public class GameButtonScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        _homeButton.onClick.AddListener(OnButtonClick);
-        _pauseButton.onClick.AddListener(OnButtonClick);
+        _homeButton.onClick.AddListener(OnHomeButtonClick);
+        _pauseButton.onClick.AddListener(OnPauseButtonClick);
     }
 
     private void OnDisable()
     {
-        _homeButton.onClick.RemoveListener(OnButtonClick);
-        _pauseButton.onClick.RemoveListener(OnButtonClick);
+        _homeButton.onClick.RemoveListener(OnHomeButtonClick);
+        _pauseButton.onClick.RemoveListener(OnPauseButtonClick);
     }
 
-    public void OnButtonClick()
+    private void OnHomeButtonClick()
     {
         HomeButtonClicked?.Invoke();
+    }
+
+    private void OnPauseButtonClick()
+    {
         PauseButtonClicked?.Invoke();
     }
 }

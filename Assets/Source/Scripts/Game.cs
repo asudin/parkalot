@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,23 +7,28 @@ public class Game : MonoBehaviour
 
     [Header("UI Screens")]
     [SerializeField] private LevelCompletedScreen _levelCompletedScreen;
+    [SerializeField] private PauseGameScreen _pauseGameScreen;
     [SerializeField] private GameButtonScreen _gameButtonScreen;
 
     private void OnEnable()
     {
         _winningZone.LevelPassed += OnLevelCompleted;
         _levelCompletedScreen.HomeButtonClick += OnHomeButtonClick;
+        _pauseGameScreen.UnpauseButtonClick += OnUnpauseButtonClick;
         _gameButtonScreen.HomeButtonClicked += OnHomeButtonClick;
+        _gameButtonScreen.PauseButtonClicked += OnPauseButtonClick;
     }
 
     private void OnDisable()
     {
         _winningZone.LevelPassed -= OnLevelCompleted;
         _levelCompletedScreen.HomeButtonClick -= OnHomeButtonClick;
+        _pauseGameScreen.UnpauseButtonClick -= OnUnpauseButtonClick;
         _gameButtonScreen.HomeButtonClicked -= OnHomeButtonClick;
+        _gameButtonScreen.PauseButtonClicked -= OnPauseButtonClick;
     }
 
-    public void OnLevelCompleted()
+    private void OnLevelCompleted()
     {
         _levelCompletedScreen.Open();
     }
@@ -32,5 +36,15 @@ public class Game : MonoBehaviour
     private void OnHomeButtonClick()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void OnPauseButtonClick()
+    {
+        _pauseGameScreen.Open();
+    }
+
+    private void OnUnpauseButtonClick()
+    {
+        _pauseGameScreen.Close();
     }
 }
