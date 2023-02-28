@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,7 +31,7 @@ public class Game : MonoBehaviour
 
     private void OnLevelCompleted()
     {
-        _levelCompletedScreen.Open();
+        StartCoroutine(WaitForUnpause());
     }
 
     private void OnHomeButtonClick()
@@ -46,5 +47,15 @@ public class Game : MonoBehaviour
     private void OnUnpauseButtonClick()
     {
         _pauseGameScreen.Close();
+    }
+
+    private IEnumerator WaitForUnpause()
+    {
+        while (_pauseGameScreen.IsShown)
+        {
+            yield return null;
+        }
+
+        _levelCompletedScreen.Open();
     }
 }
