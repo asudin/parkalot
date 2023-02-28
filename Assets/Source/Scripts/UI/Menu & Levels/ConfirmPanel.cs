@@ -6,7 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class ConfirmPanel : MonoBehaviour
 {
-    [SerializeField] private string _levelToLoad;
+    [SerializeField] private Image[] _stars;
+
+    public int LevelToLoad { get; set; }
+
+    private void Start()
+    {
+        ActivateStars();
+    }
+
+    private void ActivateStars()
+    {
+        for (int i = 0; i < _stars.Length; i++)
+        {
+            _stars[i].enabled = false;
+        }
+    }
 
     public void Cancel()
     {
@@ -15,6 +30,7 @@ public class ConfirmPanel : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene(_levelToLoad);
+        PlayerPrefs.SetInt("Current Level", LevelToLoad - 1);
+        SceneManager.LoadScene(LevelToLoad);
     }
 }
