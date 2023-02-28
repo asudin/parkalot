@@ -33,4 +33,11 @@ public static class CanvasGroupExtensions
         self.blocksRaycasts = false;
         self.alpha = 0;
     }
+
+    public static void InstantOpen(this CanvasGroup self)
+    {
+        self.interactable = true;
+        self.blocksRaycasts = true;
+        self.alpha = 1;
+    }
 }

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class LevelCompletedScreen : Screen
@@ -7,7 +6,6 @@ public class LevelCompletedScreen : Screen
 
     private bool _isCanvasShown = false;
 
-    public event Action ShowCanvas;
     public bool IsCanvasShown => _isCanvasShown;
 
     public override void Close()
@@ -19,7 +17,6 @@ public class LevelCompletedScreen : Screen
     public override void Open()
     {
         _isCanvasShown = true;
-        ShowCanvas?.Invoke();
         StartCoroutine(CanvasGroup.FadeIn(_time));
     }
 }

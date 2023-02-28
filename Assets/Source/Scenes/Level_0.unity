@@ -4398,8 +4398,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1389586745}
   - {fileID: 1329799782}
+  - {fileID: 1389586745}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8069,6 +8069,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1329799782}
   - component: {fileID: 1329799783}
+  - component: {fileID: 1329799784}
   m_Layer: 5
   m_Name: LevelButtons
   m_TagString: Untagged
@@ -8091,7 +8092,7 @@ RectTransform:
   - {fileID: 156350288}
   - {fileID: 633341300}
   m_Father: {fileID: 735322391}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8106,6 +8107,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329799781}
   m_CullTransparentMesh: 1
+--- !u!114 &1329799784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329799781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a369bbee660c1e42bf97b8ef7cbee38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _homeButton: {fileID: 0}
 --- !u!1001 &1355160514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8293,7 +8307,7 @@ RectTransform:
   - {fileID: 606898928}
   - {fileID: 1963959870}
   m_Father: {fileID: 735322391}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
