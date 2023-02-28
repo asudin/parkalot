@@ -1,6 +1,7 @@
 using UnityEngine;
 using PathCreation;
 using System.Collections;
+using DG.Tweening;
 
 public class CarMover : MonoBehaviour
 {
@@ -65,22 +66,26 @@ public class CarMover : MonoBehaviour
             _isMoving = false;
             _hasEnteredTrigger = true;
             _rigidbody.isKinematic = true;
-            StartCoroutine(MoveOnPath());
+
+            EnterOnPath();
         }
     }
 
-    private IEnumerator MoveOnPath()
+    private void EnterOnPath()
     {
         Vector3 closestPoint = _pathCreator.path.GetClosestPointOnPath(transform.position);
         float distanceFromStart = _pathCreator.path.GetClosestDistanceAlongPath(closestPoint);
+        var direction = _pathCreator.path.GetRotationAtDistance(distanceFromStart, _pathEnd);
         _distanceTraveled = distanceFromStart;
 
-        //while (transform.position != closestPoint)
-        //{
-        //    RotateCar(closestPoint, distanceFromStart);
-        //    yield return null;
-        //}
+        transform.DOMove(closestPoint, 0.3f)
+            .OnComplete(() => transform.DORotate(direction.eulerAngles, 0.3f)
+                .OnComplete(() => StartCoroutine(MoveOnPath())));
+    }
 
+
+    private IEnumerator MoveOnPath()
+    {
         while (_distanceTraveled < _pathCreator.path.length)
         {
             if (_pauseGameScreen.IsShown)
@@ -95,14 +100,6 @@ public class CarMover : MonoBehaviour
             MoveCar();
             yield return null;
         }
-    }
-
-    private void RotateCar(Vector3 closestPoint, float distanceFromStart)
-    {
-        transform.position = Vector3.MoveTowards(transform.position, closestPoint, _pathSpeed * Time.deltaTime);
-
-        Quaternion targetRotation = Quaternion.LookRotation(_pathCreator.path.GetDirectionAtDistance(distanceFromStart));
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _pathSpeed * Time.deltaTime);
     }
 
     private void MoveCar()
