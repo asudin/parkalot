@@ -1,12 +1,15 @@
+using System;
 using UnityEngine;
 
 public class LevelCompletedScreen : Screen
 {
-    [SerializeField, Tooltip("Higher positive value equals faster fade in/out animation.")] private float _time;
+    [SerializeField, Tooltip("Higher positive value equals faster fade in/out animation.")] private float _fadeTime;
 
     private bool _isCanvasShown = false;
 
     public bool IsCanvasShown => _isCanvasShown;
+
+    public event Action HomeButtonClick;
 
     public override void Close()
     {
@@ -17,6 +20,11 @@ public class LevelCompletedScreen : Screen
     public override void Open()
     {
         _isCanvasShown = true;
-        StartCoroutine(CanvasGroup.FadeIn(_time));
+        StartCoroutine(CanvasGroup.FadeIn(_fadeTime));
+    }
+
+    protected override void OnButtonClick()
+    {
+        HomeButtonClick?.Invoke();
     }
 }

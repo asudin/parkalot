@@ -13,12 +13,14 @@ public class Game : MonoBehaviour
     private void OnEnable()
     {
         _winningZone.LevelPassed += OnLevelCompleted;
+        _levelCompletedScreen.HomeButtonClick += OnHomeButtonClick;
         _gameButtonScreen.HomeButtonClicked += OnHomeButtonClick;
     }
 
     private void OnDisable()
     {
         _winningZone.LevelPassed -= OnLevelCompleted;
+        _levelCompletedScreen.HomeButtonClick -= OnHomeButtonClick;
         _gameButtonScreen.HomeButtonClicked -= OnHomeButtonClick;
     }
 
