@@ -7,6 +7,7 @@ public class CarMover : MonoBehaviour
     [SerializeField] private Transform _targetPosition;
     [SerializeField] private PathCreator _pathCreator;
     [SerializeField] private EndOfPathInstruction _pathEnd;
+    [SerializeField] private PauseGameScreen _pauseGameScreen;
 
     private Rigidbody _rigidbody;
     private bool _hasEnteredTrigger = false;
@@ -14,6 +15,7 @@ public class CarMover : MonoBehaviour
     private Vector3 _startPosition;
     private Vector3 _endPosition;
     private Vector3 _direction;
+    private Vector3 _frozenPosition;
     private float _speed = 20;
     private float _pathSpeed = 5;
     private float _distanceTraveled;
@@ -25,7 +27,7 @@ public class CarMover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isMoving)
+        if (_isMoving && !_pauseGameScreen.IsShown)
         {
             _rigidbody.MovePosition(transform.position + _direction * _speed * Time.fixedDeltaTime);
         }        
@@ -33,7 +35,7 @@ public class CarMover : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!_hasEnteredTrigger)
+        if (!_hasEnteredTrigger && !_pauseGameScreen.IsShown)
         {
             _startPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
         }
@@ -41,7 +43,7 @@ public class CarMover : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (!_isMoving)
+        if (!_isMoving && !_pauseGameScreen.IsShown)
         {
             _endPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
             _direction = (_endPosition - _startPosition).normalized;
@@ -81,6 +83,15 @@ public class CarMover : MonoBehaviour
 
         while (_distanceTraveled < _pathCreator.path.length)
         {
+            if (_pauseGameScreen.IsShown)
+            {
+                _frozenPosition = transform.position;
+                _isMoving = false;
+                yield return new WaitWhile(() => _pauseGameScreen.IsShown);
+                _isMoving = true;
+                transform.position = _frozenPosition;
+            }
+
             MoveCar();
             yield return null;
         }

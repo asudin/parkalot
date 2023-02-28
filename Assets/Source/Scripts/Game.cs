@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,43 +8,54 @@ public class Game : MonoBehaviour
 
     [Header("UI Screens")]
     [SerializeField] private LevelCompletedScreen _levelCompletedScreen;
-
-    private bool _isCompleted = false;
+    [SerializeField] private PauseGameScreen _pauseGameScreen;
+    [SerializeField] private GameButtonScreen _gameButtonScreen;
 
     private void OnEnable()
     {
-        _winningZone.LevelPassed += OnGameOver;
-        //_levelCompletedScreen.ShowCanvas += OnRestartGame;
+        _winningZone.LevelPassed += OnLevelCompleted;
+        _levelCompletedScreen.HomeButtonClick += OnHomeButtonClick;
+        _pauseGameScreen.UnpauseButtonClick += OnUnpauseButtonClick;
+        _gameButtonScreen.HomeButtonClicked += OnHomeButtonClick;
+        _gameButtonScreen.PauseButtonClicked += OnPauseButtonClick;
     }
 
     private void OnDisable()
     {
-        _winningZone.LevelPassed -= OnGameOver;
-        //_levelCompletedScreen.ShowCanvas -= OnRestartGame;
+        _winningZone.LevelPassed -= OnLevelCompleted;
+        _levelCompletedScreen.HomeButtonClick -= OnHomeButtonClick;
+        _pauseGameScreen.UnpauseButtonClick -= OnUnpauseButtonClick;
+        _gameButtonScreen.HomeButtonClicked -= OnHomeButtonClick;
+        _gameButtonScreen.PauseButtonClicked -= OnPauseButtonClick;
     }
-    private void Update()
+
+    private void OnLevelCompleted()
     {
-        if (_isCompleted)
+        StartCoroutine(WaitForUnpause());
+    }
+
+    private void OnHomeButtonClick()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void OnPauseButtonClick()
+    {
+        _pauseGameScreen.Open();
+    }
+
+    private void OnUnpauseButtonClick()
+    {
+        _pauseGameScreen.Close();
+    }
+
+    private IEnumerator WaitForUnpause()
+    {
+        while (_pauseGameScreen.IsShown)
         {
-            RestartGame();
+            yield return null;
         }
-    }
 
-    private void OnRestartGame()
-    {
-        _isCompleted = true;
-    }
-
-    private void RestartGame()
-    {
-        //if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //}
-    }
-
-    public void OnGameOver()
-    {
         _levelCompletedScreen.Open();
     }
 }
