@@ -87,7 +87,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car_3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1321995895, guid: 419ad5e9ca3165341be025684dfc673a, type: 3}
+    - {fileID: 7395738400865909275, guid: 419ad5e9ca3165341be025684dfc673a, type: 3}
+    - {fileID: 5235370304314344852, guid: 419ad5e9ca3165341be025684dfc673a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 419ad5e9ca3165341be025684dfc673a, type: 3}
 --- !u!1 &3549894790292445704 stripped
 GameObject:
@@ -110,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 86
   m_CollisionDetection: 0
---- !u!114 &1321995895
+--- !u!114 &3441728809169837084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,7 +128,8 @@ MonoBehaviour:
   _targetPosition: {fileID: 0}
   _pathCreator: {fileID: 0}
   _pathEnd: 2
---- !u!114 &7395738400865909275
+  _pauseGameScreen: {fileID: 0}
+--- !u!114 &5287660241949042800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1811bb9b620458246a49419dd5393090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5235370304314344852
+  _collisionHandler: {fileID: 0}
+--- !u!114 &7450290309265545215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

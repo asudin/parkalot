@@ -125,18 +125,7 @@ MonoBehaviour:
   _targetPosition: {fileID: 0}
   _pathCreator: {fileID: 0}
   _pathEnd: 2
---- !u!114 &7378391511689768411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8463289057594909971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1811bb9b620458246a49419dd5393090, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _pauseGameScreen: {fileID: 0}
 --- !u!114 &5670659115433264135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,3 +138,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73c44b5413501d44b66d375c87e61ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7378391511689768411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8463289057594909971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1811bb9b620458246a49419dd5393090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collisionHandler: {fileID: 0}
