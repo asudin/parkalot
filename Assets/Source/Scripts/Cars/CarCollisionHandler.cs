@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class CarCollisionHandler : MonoBehaviour
 {
-    [SerializeField] private Sprite[] _crashEmoji;
+    [SerializeField] public Sprite[] _crashEmoji;
 
     private Car _car;
     private Animator _animator;
@@ -18,10 +18,13 @@ public class CarCollisionHandler : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    private void Crash(Sprite[] crashEmoji)
+    public void Crash(Sprite[] crashEmoji)
     {
         int randomEmoji = Random.Range(0, crashEmoji.Length);
-        Instantiate(crashEmoji[randomEmoji], transform.position, Quaternion.identity);
+        Vector3 spawnPosition = transform.position + new Vector3(0, 10, 0);
+
+        Instantiate(crashEmoji[randomEmoji], spawnPosition, Quaternion.identity);
+        Debug.Log("spawn emoji");
     }
 
 
