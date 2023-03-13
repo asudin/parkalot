@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17667212, g: 0.2211422, b: 0.303445, a: 1}
+  m_IndirectSpecularColor: {r: 0.1766721, g: 0.22114223, b: 0.30344528, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13726,15 +13726,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1139063243}
     m_Modifications:
-    - target: {fileID: 1321995895, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
+    - target: {fileID: 3441728809169837084, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
       propertyPath: _pathCreator
       value: 
       objectReference: {fileID: 1695994761}
-    - target: {fileID: 1321995895, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
+    - target: {fileID: 3441728809169837084, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
       propertyPath: _targetPosition
       value: 
       objectReference: {fileID: 1594401996}
-    - target: {fileID: 1321995895, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
+    - target: {fileID: 3441728809169837084, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
       propertyPath: _pauseGameScreen
       value: 
       objectReference: {fileID: 685206867}
@@ -13786,10 +13786,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7395738400865909275, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
+    - target: {fileID: 5287660241949042800, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
       propertyPath: _collisionHandler
       value: 
       objectReference: {fileID: 1117237082}
+    - target: {fileID: 7450290309265545215, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
+      propertyPath: _crashEmoji.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450290309265545215, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
+      propertyPath: _crashEmoji.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 267224902d41e6945b22c02362cad128, type: 3}
+    - target: {fileID: 7450290309265545215, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
+      propertyPath: _crashEmoji.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a606295313f61f499bf8e6e3826a4ed, type: 3}
+    - target: {fileID: 7450290309265545215, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
+      propertyPath: _crashEmoji.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: f298fcf10d609a846a70bc7d7449735e, type: 3}
+    - target: {fileID: 7450290309265545215, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
+      propertyPath: _crashEmoji.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0776c1b334e962d42a3feaa6b00fb891, type: 3}
+    - target: {fileID: 7450290309265545215, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
+      propertyPath: _crashEmoji.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: a9f0b12eb5b809c4ab5fd382f60f8988, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11cb87cbf8834044bbaae0a3e5b85648, type: 3}
 --- !u!1001 &4345784102499949501
@@ -13811,6 +13835,30 @@ PrefabInstance:
       propertyPath: _pauseGameScreen
       value: 
       objectReference: {fileID: 685206867}
+    - target: {fileID: 5670659115433264135, guid: e0921cc22b3e9694a8ddd41e1fee9187, type: 3}
+      propertyPath: _crashEmoji.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670659115433264135, guid: e0921cc22b3e9694a8ddd41e1fee9187, type: 3}
+      propertyPath: _crashEmoji.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 267224902d41e6945b22c02362cad128, type: 3}
+    - target: {fileID: 5670659115433264135, guid: e0921cc22b3e9694a8ddd41e1fee9187, type: 3}
+      propertyPath: _crashEmoji.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a606295313f61f499bf8e6e3826a4ed, type: 3}
+    - target: {fileID: 5670659115433264135, guid: e0921cc22b3e9694a8ddd41e1fee9187, type: 3}
+      propertyPath: _crashEmoji.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: f298fcf10d609a846a70bc7d7449735e, type: 3}
+    - target: {fileID: 5670659115433264135, guid: e0921cc22b3e9694a8ddd41e1fee9187, type: 3}
+      propertyPath: _crashEmoji.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0776c1b334e962d42a3feaa6b00fb891, type: 3}
+    - target: {fileID: 5670659115433264135, guid: e0921cc22b3e9694a8ddd41e1fee9187, type: 3}
+      propertyPath: _crashEmoji.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: a9f0b12eb5b809c4ab5fd382f60f8988, type: 3}
     - target: {fileID: 7378391511689768411, guid: e0921cc22b3e9694a8ddd41e1fee9187, type: 3}
       propertyPath: _collisionHandler
       value: 
@@ -13884,10 +13932,30 @@ PrefabInstance:
       propertyPath: _pauseGameScreen
       value: 
       objectReference: {fileID: 685206867}
-    - target: {fileID: 2784324870628626857, guid: 1b5f118edb8933441af955ccff5e86b2, type: 3}
-      propertyPath: _collisionHandler
+    - target: {fileID: 1254965568160046758, guid: 1b5f118edb8933441af955ccff5e86b2, type: 3}
+      propertyPath: _crashEmoji.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254965568160046758, guid: 1b5f118edb8933441af955ccff5e86b2, type: 3}
+      propertyPath: _crashEmoji.Array.data[0]
       value: 
-      objectReference: {fileID: 1117237082}
+      objectReference: {fileID: 21300000, guid: 267224902d41e6945b22c02362cad128, type: 3}
+    - target: {fileID: 1254965568160046758, guid: 1b5f118edb8933441af955ccff5e86b2, type: 3}
+      propertyPath: _crashEmoji.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a606295313f61f499bf8e6e3826a4ed, type: 3}
+    - target: {fileID: 1254965568160046758, guid: 1b5f118edb8933441af955ccff5e86b2, type: 3}
+      propertyPath: _crashEmoji.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: f298fcf10d609a846a70bc7d7449735e, type: 3}
+    - target: {fileID: 1254965568160046758, guid: 1b5f118edb8933441af955ccff5e86b2, type: 3}
+      propertyPath: _crashEmoji.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0776c1b334e962d42a3feaa6b00fb891, type: 3}
+    - target: {fileID: 1254965568160046758, guid: 1b5f118edb8933441af955ccff5e86b2, type: 3}
+      propertyPath: _crashEmoji.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: a9f0b12eb5b809c4ab5fd382f60f8988, type: 3}
     - target: {fileID: 7309847943436736615, guid: 1b5f118edb8933441af955ccff5e86b2, type: 3}
       propertyPath: m_Name
       value: Car_2
