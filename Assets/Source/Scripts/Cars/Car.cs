@@ -16,7 +16,7 @@ public class Car : MonoBehaviour
         _collisionHandler = GetComponent<CarCollisionHandler>();
     }
 
-    public void ShowEmohi()
+    public void ShowEmoji()
     {
         _emoji.RandomEmoji();
     }
