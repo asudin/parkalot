@@ -13613,6 +13613,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8114121057576993345, guid: 131d8f38260fe7544ab04bc23445bcaa, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3cfcc8c0e464ff444b53347ad1b14a0a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 131d8f38260fe7544ab04bc23445bcaa, type: 3}
 --- !u!4 &4789340433980974100 stripped
@@ -13692,6 +13696,10 @@ PrefabInstance:
       propertyPath: _pauseGameScreen
       value: 
       objectReference: {fileID: 685206867}
+    - target: {fileID: 6013398916255334028, guid: 59325ddff06bace4dafb044ca2070929, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 968b8560aa386aa4e8abce3652963320, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59325ddff06bace4dafb044ca2070929, type: 3}
 --- !u!4 &8923528256863561684 stripped
