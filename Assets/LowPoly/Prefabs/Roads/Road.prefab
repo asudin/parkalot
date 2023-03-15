@@ -11,12 +11,14 @@ GameObject:
   - component: {fileID: 626610065910075211}
   - component: {fileID: 4548056308545093870}
   - component: {fileID: 1799476485491192868}
+  - component: {fileID: 504608165}
+  - component: {fileID: 504608166}
   m_Layer: 0
   m_Name: Road
   m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 3
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &626610065910075211
 Transform:
@@ -83,3 +85,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &504608165
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286535085685036529}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.985446, y: 0.14615, z: 4.0328746}
+  m_Center: {x: 0, y: 0.06441949, z: 1.9762857}
+--- !u!114 &504608166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286535085685036529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d86051f72b1f4d4c9486e161056ceb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
