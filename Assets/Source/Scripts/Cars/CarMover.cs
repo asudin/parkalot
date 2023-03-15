@@ -5,6 +5,10 @@ using DG.Tweening;
 
 public class CarMover : MonoBehaviour
 {
+    [Header("Animation")]
+    [SerializeField] private Animator _animator;
+
+    [Header("Moving Path")]
     [SerializeField] private Transform _targetPosition;
     [SerializeField] private PathCreator _pathCreator;
     [SerializeField] private EndOfPathInstruction _pathEnd;
@@ -24,6 +28,7 @@ public class CarMover : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -49,6 +54,7 @@ public class CarMover : MonoBehaviour
             _endPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
             _direction = (_endPosition - _startPosition).normalized;
             _isMoving = true;
+            _animator.enabled = false;
         }
     }
 
