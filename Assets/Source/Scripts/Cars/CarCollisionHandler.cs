@@ -51,12 +51,13 @@ public class CarCollisionHandler : MonoBehaviour
             _car.Animator.enabled = true;
             _car.Animator.SetTrigger("crashTrigger");
 
-            if (collision.collider == _frontCollider)
+            ContactPoint contact = collision.contacts[0];
+            if (contact.thisCollider == _frontCollider)
             {
                 oppositeDirection = transform.forward;
                 _mover.MoveCrashedCar(oppositeDirection);
             }
-            else if (collision.collider == _backCollider)
+            else if (contact.thisCollider == _backCollider)
             {
                 oppositeDirection = -transform.forward;
                 _mover.MoveCrashedCar(oppositeDirection);
