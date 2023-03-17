@@ -46,12 +46,13 @@ public class CarCollisionHandler : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out Obstacle obstacle))
         {
             Vector3 oppositeDirection = Vector3.zero;
+            ContactPoint contact = collision.contacts[0];
+
             _mover.IsMoving = false;
             _car.Rigidbody.velocity = Vector3.zero;
             _car.Animator.enabled = true;
             _car.Animator.SetTrigger("crashTrigger");
 
-            ContactPoint contact = collision.contacts[0];
             if (contact.thisCollider == _frontCollider)
             {
                 oppositeDirection = transform.forward;
