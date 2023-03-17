@@ -21,6 +21,7 @@ public class CarMover : MonoBehaviour
     private float _speed = 20;
     private float _pathSpeed = 5;
     private float _distanceTraveled;
+    private float _crashMovePosition = 0.5f;
 
     public bool IsMoving
     {
@@ -96,5 +97,11 @@ public class CarMover : MonoBehaviour
         transform.DOMove(closestPoint, 0.3f)
             .OnComplete(() => transform.DORotate(direction.eulerAngles, 0.3f)
                 .OnComplete(() => StartCoroutine(MoveOnPath())));
+    }
+
+    public void MoveCrashedCar(Vector3 movingDiretion)
+    {
+        Debug.Log("collided");
+        _car.Rigidbody.MovePosition(transform.position + movingDiretion * _crashMovePosition);
     }
 }

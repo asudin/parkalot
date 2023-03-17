@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class CarCollisionHandler : MonoBehaviour
 {
+    [Header("Colliders")]
+    [SerializeField] private BoxCollider _frontCollider;
+    [SerializeField] private BoxCollider _backCollider;
+
     private Car _car;
     private CarMover _mover;
     private Rigidbody _rigidbody;
@@ -41,10 +45,22 @@ public class CarCollisionHandler : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Obstacle obstacle))
         {
+            Vector3 oppositeDirection = Vector3.zero;
             _mover.IsMoving = false;
             _car.Rigidbody.velocity = Vector3.zero;
             _car.Animator.enabled = true;
             _car.Animator.SetTrigger("crashTrigger");
+
+            if (collision.collider == _frontCollider)
+            {
+                oppositeDirection = transform.forward;
+                _mover.MoveCrashedCar(oppositeDirection);
+            }
+            else if (collision.collider == _backCollider)
+            {
+                oppositeDirection = -transform.forward;
+                _mover.MoveCrashedCar(oppositeDirection);
+            }
         }
     }
 }

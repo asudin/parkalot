@@ -183,6 +183,8 @@ GameObject:
   - component: {fileID: 5779541270746461598}
   - component: {fileID: 231856863787585900}
   - component: {fileID: 8114121057576993345}
+  - component: {fileID: 7373107073767525884}
+  - component: {fileID: 7758222845206543974}
   m_Layer: 0
   m_Name: Car_2
   m_TagString: Untagged
@@ -271,8 +273,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.8527136, y: 1.414252, z: 3.5649233}
-  m_Center: {x: 0, y: 0.66465735, z: 0.30571467}
+  m_Size: {x: 1.8527136, y: 1.5074184, z: 3.376416}
+  m_Center: {x: 0, y: 0.6180741, z: 0.3705581}
 --- !u!54 &2054182571735914722
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -287,7 +289,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 86
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!114 &7492984917267135121
 MonoBehaviour:
@@ -301,8 +303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1811bb9b620458246a49419dd5393090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 8114121057576993345}
+  _rigidbody: {fileID: 2054182571735914722}
   _collisionHandler: {fileID: 5779541270746461598}
-  _emoji: {fileID: 0}
+  _emoji: {fileID: 8753802844962250156}
 --- !u!114 &5779541270746461598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73c44b5413501d44b66d375c87e61ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _frontCollider: {fileID: 0}
+  _backCollider: {fileID: 0}
 --- !u!114 &231856863787585900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54844933b35e7741a61269b3ed1e5a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
   _targetPosition: {fileID: 0}
   _pathCreator: {fileID: 0}
   _pathEnd: 2
@@ -352,6 +357,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &7373107073767525884
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7369704761772648021}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8527136, y: 1.5, z: 0.1}
+  m_Center: {x: 0, y: 0.66465735, z: 2.15}
+--- !u!65 &7758222845206543974
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7369704761772648021}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8527136, y: 1.5, z: 0.1}
+  m_Center: {x: 0, y: 0.66465735, z: -1.39}
 --- !u!1 &7646416271855814263
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,3 +615,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3951441891475444310, guid: 5e67f426da762144588340e50ae93c40, type: 3}
   m_PrefabInstance: {fileID: 4710631769531027568}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8753802844962250156 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4045437444849815004, guid: 5e67f426da762144588340e50ae93c40, type: 3}
+  m_PrefabInstance: {fileID: 4710631769531027568}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d5062df71bf274ea77a43d5f44438e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
