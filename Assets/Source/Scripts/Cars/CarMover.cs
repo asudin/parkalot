@@ -101,7 +101,6 @@ public class CarMover : MonoBehaviour
 
     public void MoveCrashedCar(Vector3 movingDiretion)
     {
-        Debug.Log("collided");
         _car.Rigidbody.MovePosition(transform.position + movingDiretion * _crashMovePosition);
     }
 }
