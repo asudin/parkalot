@@ -35,4 +35,12 @@ public class CarCollisionHandler : MonoBehaviour
             _mover.EnterOnPath();
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Obstacle obstacle))
+        {
+            _mover.IsMoving = false;
+        }
+    }
 }
