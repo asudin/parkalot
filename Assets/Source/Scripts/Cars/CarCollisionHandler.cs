@@ -43,7 +43,8 @@ public class CarCollisionHandler : MonoBehaviour
         {
             _mover.IsMoving = false;
             _car.Rigidbody.velocity = Vector3.zero;
-            //_animator.SetTrigger("crashTrigger");
+            _car.Animator.enabled = true;
+            _car.Animator.SetTrigger("crashTrigger");
         }
     }
 }
