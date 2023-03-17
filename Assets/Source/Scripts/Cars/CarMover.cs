@@ -21,7 +21,6 @@ public class CarMover : MonoBehaviour
     private float _speed = 20;
     private float _pathSpeed = 5;
     private float _distanceTraveled;
-    private float _crashMovePosition = 0.5f;
 
     public bool IsMoving
     {
@@ -101,6 +100,13 @@ public class CarMover : MonoBehaviour
 
     public void MoveCrashedCar(Vector3 movingDiretion)
     {
+        float _crashMovePosition = 0.5f;
         _car.Rigidbody.MovePosition(transform.position + movingDiretion * _crashMovePosition);
+    }
+
+    public void StopCar()
+    {
+        _isMoving = false;
+        _car.Rigidbody.velocity = Vector3.zero;
     }
 }
