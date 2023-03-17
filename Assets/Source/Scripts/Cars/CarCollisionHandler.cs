@@ -5,6 +5,7 @@ public class CarCollisionHandler : MonoBehaviour
 {
     private Car _car;
     private CarMover _mover;
+    private Rigidbody _rigidbody;
     private bool _hasEnteredTrigger { get; set; }
 
     public event Action<Car> Collected;
@@ -22,7 +23,7 @@ public class CarCollisionHandler : MonoBehaviour
         {
             Collected?.Invoke(_car);
             _hasEnteredTrigger = false;
-            _mover.Rigidbody.isKinematic = false;
+            _car.Rigidbody.isKinematic = false;
             Destroy(gameObject);
         }
 
@@ -30,7 +31,7 @@ public class CarCollisionHandler : MonoBehaviour
         {
             _mover.IsMoving = false;
             _hasEnteredTrigger = true;
-            _mover.Rigidbody.isKinematic = true;
+            _car.Rigidbody.isKinematic = true;
 
             _mover.EnterOnPath();
         }
@@ -41,6 +42,8 @@ public class CarCollisionHandler : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out Obstacle obstacle))
         {
             _mover.IsMoving = false;
+            _car.Rigidbody.velocity = Vector3.zero;
+            //_animator.SetTrigger("crashTrigger");
         }
     }
 }
