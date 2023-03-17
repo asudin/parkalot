@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 7404668444560446340}
   _rigidbody: {fileID: 3577350094656760780}
+  _carMover: {fileID: 4697536098232907903}
   _collisionHandler: {fileID: 3732474496130000835}
   _emoji: {fileID: 5663818157259713143}
 --- !u!114 &3732474496130000835
@@ -250,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54844933b35e7741a61269b3ed1e5a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMovingVertically: 0
   _targetPosition: {fileID: 0}
   _pathCreator: {fileID: 0}
   _pathEnd: 2

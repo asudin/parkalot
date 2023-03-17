@@ -48,7 +48,6 @@ public class CarCollisionHandler : MonoBehaviour
             _car.Animator.enabled = true;
             _car.Animator.SetTrigger("crashTrigger");
             _mover.StopCar();
-            //CheckCollider(collision);
         }
 
         if (collision.collider.TryGetComponent(out Car car))
