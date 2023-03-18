@@ -11,12 +11,6 @@ public class WinningZoneTrigger : MonoBehaviour
     public int CollectedCars => _collectedCars;
     public event Action LevelPassed;
 
-    private void Update()
-    {
-        Debug.Log("Container cars : " + _container.Cars.Count);
-        Debug.Log("Cars collected : " + _collectedCars);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.TryGetComponent(out Car car))
