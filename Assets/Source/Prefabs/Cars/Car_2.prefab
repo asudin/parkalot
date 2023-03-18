@@ -273,8 +273,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.8527136, y: 1.5074184, z: 3.376416}
-  m_Center: {x: 0, y: 0.6180741, z: 0.3705581}
+  m_Size: {x: 1.9263109, y: 1.5074184, z: 3.376416}
+  m_Center: {x: 0.01286153, y: 0.6180741, z: 0.3705581}
 --- !u!54 &2054182571735914722
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -289,7 +289,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 118
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &7492984917267135121
 MonoBehaviour:
@@ -305,7 +305,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 8114121057576993345}
   _rigidbody: {fileID: 2054182571735914722}
-  _carMover: {fileID: 231856863787585900}
   _collisionHandler: {fileID: 5779541270746461598}
   _emoji: {fileID: 8753802844962250156}
 --- !u!114 &5779541270746461598
@@ -320,8 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73c44b5413501d44b66d375c87e61ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frontCollider: {fileID: 0}
-  _backCollider: {fileID: 0}
+  _frontCollider: {fileID: 7373107073767525884}
+  _backCollider: {fileID: 7758222845206543974}
 --- !u!114 &231856863787585900
 MonoBehaviour:
   m_ObjectHideFlags: 0

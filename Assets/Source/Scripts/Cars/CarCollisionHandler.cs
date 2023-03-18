@@ -6,10 +6,10 @@ public class CarCollisionHandler : MonoBehaviour
     [Header("Colliders")]
     [SerializeField] private BoxCollider _frontCollider;
     [SerializeField] private BoxCollider _backCollider;
+    [SerializeField] private BoxCollider _inputCollider;
 
     private Car _car;
     private CarMover _mover;
-    private Rigidbody _rigidbody;
     private bool _hasEnteredTrigger { get; set; }
 
     public event Action<Car> Collected;
@@ -36,6 +36,7 @@ public class CarCollisionHandler : MonoBehaviour
             _mover.IsMoving = false;
             _hasEnteredTrigger = true;
             _car.Rigidbody.isKinematic = true;
+            _inputCollider.enabled = false;
 
             _mover.EnterOnPath();
         }

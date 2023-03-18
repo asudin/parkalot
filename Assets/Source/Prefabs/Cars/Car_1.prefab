@@ -190,8 +190,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9537721, y: 0.8219211, z: 1.7659843}
-  m_Center: {x: -6.597311e-16, y: 0.3258503, z: 0.1603229}
+  m_Size: {x: 0.9817929, y: 0.8219211, z: 1.690888}
+  m_Center: {x: 0.003945152, y: 0.3258503, z: 0.16143663}
 --- !u!54 &3577350094656760780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 124
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &1953185994907127327
 MonoBehaviour:
@@ -222,7 +222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 7404668444560446340}
   _rigidbody: {fileID: 3577350094656760780}
-  _carMover: {fileID: 4697536098232907903}
   _collisionHandler: {fileID: 3732474496130000835}
   _emoji: {fileID: 5663818157259713143}
 --- !u!114 &3732474496130000835
@@ -287,8 +286,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9537722, y: 1, z: 0.1}
-  m_Center: {x: -2.2783242e-15, y: 0.36293387, z: 1.07}
+  m_Size: {x: 0.9537721, y: 1, z: 0.06411638}
+  m_Center: {x: -7.352351e-15, y: 0.36293387, z: 1.0879431}
 --- !u!65 &1859090124031351573
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -300,8 +299,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9537722, y: 1, z: 0.1}
-  m_Center: {x: -2.2783242e-15, y: 0.36293387, z: -0.75}
+  m_Size: {x: 0.9537721, y: 1, z: 0.043555327}
+  m_Center: {x: 1.1794968e-15, y: 0.36293387, z: -0.72}
 --- !u!1 &4803925509678992807
 GameObject:
   m_ObjectHideFlags: 0

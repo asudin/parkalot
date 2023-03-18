@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 4097410762331771435}
   - component: {fileID: 8105116952439085512}
   - component: {fileID: 6013398916255334028}
+  - component: {fileID: 1966707017417394670}
+  - component: {fileID: 3126621695824597307}
   m_Layer: 0
   m_Name: Car_3
   m_TagString: Untagged
@@ -105,8 +107,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.95377195, y: 0.74860716, z: 2.669204}
-  m_Center: {x: 0, y: 0.36250716, z: 0.07641339}
+  m_Size: {x: 0.95377195, y: 0.793025, z: 2.5281887}
+  m_Center: {x: 0, y: 0.34029835, z: 0.093686424}
 --- !u!54 &6683013362532351168
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -121,7 +123,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 86
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!114 &6808912145816364615
 MonoBehaviour:
@@ -137,9 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 6013398916255334028}
   _rigidbody: {fileID: 6683013362532351168}
-  _carMover: {fileID: 4097410762331771435}
   _collisionHandler: {fileID: 8105116952439085512}
-  _emoji: {fileID: 0}
+  _emoji: {fileID: 6587751883769981890}
 --- !u!114 &4097410762331771435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,8 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73c44b5413501d44b66d375c87e61ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frontCollider: {fileID: 0}
-  _backCollider: {fileID: 0}
+  _frontCollider: {fileID: 1966707017417394670}
+  _backCollider: {fileID: 3126621695824597307}
 --- !u!95 &6013398916255334028
 Animator:
   serializedVersion: 4
@@ -191,6 +192,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1966707017417394670
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693325514140403284}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.95377195, y: 1, z: 0.1}
+  m_Center: {x: 0, y: 0.36250716, z: 1.44}
+--- !u!65 &3126621695824597307
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693325514140403284}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.95377195, y: 1, z: 0.1}
+  m_Center: {x: 0, y: 0.36250716, z: -1.2}
 --- !u!1 &953344773177241284
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,3 +628,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3951441891475444310, guid: 5e67f426da762144588340e50ae93c40, type: 3}
   m_PrefabInstance: {fileID: 7154005956023772702}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6587751883769981890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4045437444849815004, guid: 5e67f426da762144588340e50ae93c40, type: 3}
+  m_PrefabInstance: {fileID: 7154005956023772702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d5062df71bf274ea77a43d5f44438e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
