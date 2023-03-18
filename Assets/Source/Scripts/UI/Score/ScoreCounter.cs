@@ -6,8 +6,8 @@ public class ScoreCounter : MonoBehaviour
 {
     [SerializeField] private TMP_Text _coinsScore;
     [SerializeField] private CarsContainer _carsContainer;
-    
-    private LevelCompletedScreen _levelCompletedScreen;
+    [SerializeField] private LevelCompletedScreen _levelCompletedScreen;
+
     private static int _playerCoins = 0;
 
     public int PlayerCoins => _playerCoins;
@@ -26,11 +26,6 @@ public class ScoreCounter : MonoBehaviour
         {
             car.CollisionHandler.Collected -= ChangeCoinsNumber;
         }
-    }
-
-    private void Awake()
-    {
-        _levelCompletedScreen = transform.parent.GetComponent<LevelCompletedScreen>();
     }
 
     private void Update()

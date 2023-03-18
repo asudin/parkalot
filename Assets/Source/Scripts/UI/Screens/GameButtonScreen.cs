@@ -7,6 +7,8 @@ public class GameButtonScreen : MonoBehaviour
     [SerializeField] private Button _homeButton;
     [SerializeField] private Button _pauseButton;
 
+    private CanvasGroup _canvasGroup;
+
     public event Action HomeButtonClicked;
     public event Action PauseButtonClicked;
 
@@ -22,6 +24,11 @@ public class GameButtonScreen : MonoBehaviour
         _pauseButton.onClick.RemoveListener(OnPauseButtonClick);
     }
 
+    private void Awake()
+    {
+        _canvasGroup = GetComponent<CanvasGroup>();
+    }
+
     private void OnHomeButtonClick()
     {
         HomeButtonClicked?.Invoke();
@@ -30,5 +37,15 @@ public class GameButtonScreen : MonoBehaviour
     private void OnPauseButtonClick()
     {
         PauseButtonClicked?.Invoke();
+    }
+
+    public void OpenCanvas()
+    {
+        _canvasGroup.InstantOpen();
+    }
+
+    public void CloseCanvas()
+    {
+        _canvasGroup.InstantClose();
     }
 }
