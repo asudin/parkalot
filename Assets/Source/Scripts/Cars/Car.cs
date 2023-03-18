@@ -3,6 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(CarCollisionHandler))]
 public class Car : MonoBehaviour
 {
+    [Header("Configurations")]
+    [SerializeField] private Animator _animator;
+    [SerializeField] private Rigidbody _rigidbody;
+
+    [Header("Crash collision")]
     [SerializeField] private CarCollisionHandler _collisionHandler;
     [SerializeField] private Emoji _emoji;
 
@@ -10,6 +15,8 @@ public class Car : MonoBehaviour
 
     public int CarScore => _carScore;
     public CarCollisionHandler CollisionHandler => _collisionHandler;
+    public Animator Animator => _animator;
+    public Rigidbody Rigidbody => _rigidbody;
 
     private void Awake()
     {

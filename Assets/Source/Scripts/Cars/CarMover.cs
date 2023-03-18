@@ -5,8 +5,8 @@ using DG.Tweening;
 
 public class CarMover : MonoBehaviour
 {
-    [Header("Animation")]
-    [SerializeField] private Animator _animator;
+    [Header("Configurations")]
+    [SerializeField] private bool _isMovingVertically;
 
     [Header("Moving Path")]
     [SerializeField] private Transform _targetPosition;
@@ -15,7 +15,8 @@ public class CarMover : MonoBehaviour
     [SerializeField] private PauseGameScreen _pauseGameScreen;
 
     private CarCollisionHandler _collisionHandler;
-    private Rigidbody _rigidbody;
+    private Car _car;
+    private RigidbodyConstraints _originalConstraints;
     private bool _isMoving;
     private Vector3 _startPosition;
     private Vector3 _endPosition;
@@ -30,20 +31,20 @@ public class CarMover : MonoBehaviour
         get => _isMoving;
         set => _isMoving = value;
     }
-    public Rigidbody Rigidbody => _rigidbody;
+    public bool IsMovingVertically => _isMovingVertically;
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        _animator = GetComponent<Animator>();
+        _car = GetComponent<Car>();
         _collisionHandler = GetComponent<CarCollisionHandler>();
+        _originalConstraints = _car.Rigidbody.constraints;
     }
 
     private void FixedUpdate()
     {
         if (IsMoving && !_pauseGameScreen.IsShown)
         {
-            _rigidbody.MovePosition(transform.position + _direction * _speed * Time.fixedDeltaTime);
+            _car.Rigidbody.MovePosition(transform.position + _direction * _speed * Time.fixedDeltaTime);
         }
     }
 
@@ -51,6 +52,14 @@ public class CarMover : MonoBehaviour
     {
         if (!_collisionHandler.HasEnteredTrigger && !_pauseGameScreen.IsShown)
         {
+            if(_isMovingVertically)
+            {
+                _car.Rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionX;
+            }
+            else
+            {
+                _car.Rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionZ;
+            }
             _startPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
         }
     }
@@ -62,7 +71,7 @@ public class CarMover : MonoBehaviour
             _endPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
             _direction = (_endPosition - _startPosition).normalized;
             _isMoving = true;
-            _animator.enabled = false;
+            _car.Animator.enabled = false;
         }
     }
 
@@ -101,5 +110,18 @@ public class CarMover : MonoBehaviour
         transform.DOMove(closestPoint, 0.3f)
             .OnComplete(() => transform.DORotate(direction.eulerAngles, 0.3f)
                 .OnComplete(() => StartCoroutine(MoveOnPath())));
+    }
+
+    public void MoveCrashedCar(Vector3 movingDiretion)
+    {
+        float _crashMovePosition = 0.5f;
+        _car.Rigidbody.MovePosition(transform.position + movingDiretion * _crashMovePosition);
+        _car.Rigidbody.constraints = _originalConstraints;
+    }
+
+    public void StopCar()
+    {
+        _isMoving = false;
+        _car.Rigidbody.velocity = Vector3.zero;
     }
 }

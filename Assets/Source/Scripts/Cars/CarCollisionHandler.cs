@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class CarCollisionHandler : MonoBehaviour
 {
+    [Header("Colliders")]
+    [SerializeField] private BoxCollider _frontCollider;
+    [SerializeField] private BoxCollider _backCollider;
+    [SerializeField] private BoxCollider _inputCollider;
+
     private Car _car;
     private CarMover _mover;
     private bool _hasEnteredTrigger { get; set; }
@@ -22,7 +27,7 @@ public class CarCollisionHandler : MonoBehaviour
         {
             Collected?.Invoke(_car);
             _hasEnteredTrigger = false;
-            _mover.Rigidbody.isKinematic = false;
+            _car.Rigidbody.isKinematic = false;
             Destroy(gameObject);
         }
 
@@ -30,9 +35,44 @@ public class CarCollisionHandler : MonoBehaviour
         {
             _mover.IsMoving = false;
             _hasEnteredTrigger = true;
-            _mover.Rigidbody.isKinematic = true;
+            _car.Rigidbody.isKinematic = true;
+            _inputCollider.enabled = false;
 
             _mover.EnterOnPath();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Obstacle obstacle))
+        {
+            _car.Animator.enabled = true;
+            _car.Animator.SetTrigger("crashTrigger");
+            _mover.StopCar();
+        }
+
+        if (collision.collider.TryGetComponent(out Car car))
+        {
+            _mover.StopCar();
+            CheckCollider(collision);
+            car.Animator.SetTrigger("crashTrigger");
+        }
+    }
+
+    private void CheckCollider(Collision collision)
+    {
+        Vector3 oppositeDirection = Vector3.zero;
+        ContactPoint contact = collision.contacts[0];
+
+        if (contact.thisCollider == _frontCollider)
+        {
+            oppositeDirection = -transform.forward;
+            _mover.MoveCrashedCar(oppositeDirection);
+        }
+        else if (contact.thisCollider == _backCollider)
+        {
+            oppositeDirection = transform.forward;
+            _mover.MoveCrashedCar(oppositeDirection);
         }
     }
 }
